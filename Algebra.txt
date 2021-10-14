@@ -1,0 +1,335 @@
+Algoritmo Poryecto Algebra lineal
+	Definir I Como Numerica
+	Definir fila Como Entero;
+	Definir columna Como Entero;
+	Definir contador Como Entero;
+	Dimension matriz1[100000,100000]
+	Dimension matriz2[100000,100000]
+	Dimension matrizR[100000,100000]
+	Definir random Como Entero
+	random=Aleatorio(1,10000)
+	contador=0;
+	Mientras clave <> random
+		borrar pantalla
+		Mostrar"**********************************************"
+		Mostrar Sin Saltar "clave temporal de acceso: "
+		Mostrar random
+		Mostrar "**********************************************"
+		Mostrar ""
+		
+		Mostrar "***** Login *****"
+		Mostrar sin saltar " ingrese su Nombre"
+		Leer Nombre 
+		Mostrar Sin Saltar "Ingrese la clave"
+		Leer clave
+		Mostrar "*****************"
+		si (clave == random) Entonces
+			Esperar 1 Segundos
+			Borrar Pantalla
+			Mostrar "cargando..."
+			Esperar 2 Segundos
+			Borrar Pantalla
+			
+			si(longitud(Nombre) ==0) Entonces
+				Nombre=Convertiratexto(random);
+			FinSi
+		
+		
+		SiNo
+			Borrar Pantalla
+			Mostrar "¡ Atención! Ingrese Temporal asignada"
+			Esperar 2 Segundos
+		FinSi
+	FinMientras
+	
+	Mientras opcion1 <> 2
+		Escribir "****** Usuario: ",Mayusculas(Nombre)," ******"
+		Mostrar " 1. Empezar"
+		Mostrar " 2. Salir"
+		Escribir "*********************************************";
+		Mostrar ""
+		Mostrar "ingrese una opcion"
+		
+		opcion1=validar 
+		Borrar Pantalla
+		
+		si (opcion1==1) Entonces
+			Mostrar "cargando. . ."
+			Esperar 1 Segundo
+			Borrar Pantalla
+			opcion2=1
+			Mientras  opcion2 <>6
+				Escribir "****** Operaciones ******"
+				Escribir "1. Suma de Matrices";
+				Escribir "2. Resta de Matrices";
+				Escribir "3. Multiplicacion de Matrices";
+				Escribir "4. Division de Matrices";
+				Escribir "5 Transpuesta de una Matriz";
+				Escribir "6 Salir";
+				Escribir "*************************";
+				Mostrar ""
+				Mostrar " ingrese una opcion"
+				
+				opcion2=Validar
+				Borrar Pantalla
+				
+				si (opcion2 > 6 o opcion2 <1) Entonces
+					Mostrar  "ingrese una Opcion Validar"
+					Esperar 0 Segundos
+				FinSi
+				
+				si (opcion2==6) Entonces
+					Mostrar " saliendo..."
+					Esperar 0 segundos
+					opcion2 =6
+					Borrar Pantalla
+				FinSi
+				
+				si (opcion2 >0 y Opcion <6) Entonces
+					Escribir "Ingrese el tamaño de la matriz";
+					Escribir Sin Saltar "fila";
+					Leer fila;
+					
+					Escribir Sin Saltar"columna: ";
+					leer columna;
+					
+					Borrar Pantalla
+					
+					matriz1[10000,10000]= matriz1[fila,columna];
+					matriz2[10000,10000]= matriz2[fila,columna];
+					matrizR[10000,10000]= matrizR[fila,columna];
+					
+					Escribir "Ingrese los", fila*columna,"valores de la primera matriz", fila,"x",columna;
+					
+					Para I<-1 Hasta fila Hacer
+						Para J<-1 hasta columna Hacer
+							contador=contador+1
+							Escribir Sin Saltar contador,". posicion [",I," ",J,"]:"
+							Leer matriz1[I,J];
+						FinPara
+						
+					FinPara
+					
+				FinSi
+				Borrar Pantalla
+				contador=0;
+				si (opcion2 >0 y opcion2 <5) Entonces
+					Escribir "ingrese los", fila*columna,"velores de la segunda matriz",fila,"X",columna;
+					
+					Para I2<-1 Hasta fila Hacer
+						Para J2<-1 Hasta columna Hacer
+							contador=contador+1;
+							Escribir Sin Saltar contador,".posicion [",I2," ",J2,"]:"
+							Leer matriz2[I2,J2];
+							
+						FinPara
+					FinPara
+					
+					Borrar Pantalla
+					contador=0;
+					
+					Escribir "primera Matriz";
+					Para I<-1 Hasta fila Hacer
+						
+						Para J<-1 Hasta columna Hacer
+							Escribir sin saltar "[",matriz1[I,J],"]";
+						FinPara
+					FinPara
+					
+					Escribir"";
+				FinSi
+				Escribir "";
+				Escribir "Segunda Matriz";
+				Para I2<-1 Hasta fila Hacer
+					para J2<-1 Hasta columna Hacer
+						Escribir Sin Saltar" [",matriz2[I2,J2],"]";
+					FinPara
+					
+					Escribir "";
+				FinPara 
+				Escribir "";
+				
+				segun opcion2	
+					1:
+						Escribir "********* SUMA DE MATRICES *********";
+						escribir "Matriz resultante:";
+						
+						Para I3<-1 Hasta fila Hacer
+							para j3<-1 Hasta columna Hacer
+								matrizR[I3,J3]= matriz1[I3,J3] + matriz2[I3,J3];
+								Escribir Sin Saltar"[",matrizR[I3,J3],"]";
+							FinPara
+							Escribir "";
+						FinPara
+						Escribir "";
+						
+					2:	
+						Escribir "********* RESTA DE MATRICES *********";
+						Escribir "matriz resultante:";
+						
+						Para I3<-1 Hasta  fila Hacer
+							Para J3<-1 Hasta columna Hacer
+								matrizR[I3,J3]= matriz1[I3,J3] - matriz2[I3,j3];
+								Escribir Sin Saltar"[",matrizR[I3,J3],"]";
+							FinPara
+							Escribir "";
+						FinPara
+						Escribir "";
+						
+					3:	
+						Escribir "********* MULTIPLICACIONES DE MATRICES *********";
+						Para I3<-1 Hasta fila Hacer
+							c<-1;
+							Mientras c < 3 Hacer
+								suma<-0 ;
+								Para J3<-1 Hasta columna Hacer
+									suma<-suma + (matriz1(I3,J3) * matriz2 (J3,c));
+								FinPara
+								MatrizR(I3,C) <- suma;
+								c<-c+1;
+							FinMientras
+						FinPara
+						Escribir "";
+						
+					4:	
+						Escribir "********* DIVISION DE MATRICEZ *********";
+						Escribir "matriz resultante:";
+						
+						Para I3<-1 Hasta fila Hacer
+							
+							Para I3<-1 Hasta fila Hacer
+								matrizR[I3,J3]= Matriz1[I3,J3] / matriz2[I3,J3];
+								Escribir Sin Saltar "[",matrizR[I3,J3],"]";
+							FinPara
+							Escribir "";
+						FinPara
+						Escribir "";
+						
+					5:
+						Escribir "Primera Matriz";
+						Para I<-1 Hasta fila Hacer
+							para j<-1 Hasta columna Hacer
+								Escribir sin saltar"[",matriz1[I,J],"]";
+							FinPara
+							Escribir "";
+						FinPara
+						
+						Escribir"********* MATRIZ TRANSPUESTA *********"; 
+						Para I<-1 Hasta columna Hacer
+							Escribir Sin Saltar "[",matriz1[J,I],"]";
+						FinPara
+						
+						Escribir "";
+						
+				    De Otro Modo:
+						Mostrar "Ingrese una opcion valida"
+						Mostrar "presione eneter para continuar"
+						Esperar Tecla
+					
+				FinSegun
+				Esperar 1 Segundos
+				Mostrar "presiona cualquier tecla para continuar"
+				Esperar Tecla
+				Borrar Pantalla
+				
+			FinMientras
+		FinSi
+		
+		si (opcion1==2) Entonces
+			
+			Borrar Pantalla
+			Mostrar Sin Saltar "saliendo..."
+			esperar 1 Segundos
+			Borrar Pantalla
+			Mostrar Sin Saltar "salendo...."
+			Esperar 1 Segundos
+			Borrar Pantalla
+			Mostrar Sin Saltar "saliendo....."
+			Esperar 1 Segundo
+			Borrar Pantalla
+			Mostrar Sin Saltar"saliendo......"
+			esperar 1 Segundos
+			Mostrar "vuelve pronto :)"
+			Mostrar ""
+		FinSi
+		
+		si (opcion1>2 o opcion1<1) Entonces
+			
+			Mostrar "ingrese un valor correcto..."
+			Esperar 1 Segundo
+			Borrar Pantalla
+		FinSi
+		
+	FinMientras
+FinAlgoritmo
+
+Funcion op=validar
+	
+	Definir valorN Como Entero;
+	Dimension d[27]
+	Definir vof,v1 Como Logico;
+	
+	vof=Falso
+	v1=Verdadero
+	d[1]="a";
+	d[2]="b";
+	d[3]="c";
+	d[4]="d";
+	d[5]="e";
+	d[6]="f";
+	d[7]="g";
+	d[8]="h";
+	d[9]="i";
+	d[10]="j";
+	d[11]="k";
+	d[12]="l";
+	d[13]="m";
+	d[14]="n";
+	d[15]="ñ";
+	d[16]="o";
+	d[17]="p";
+	d[18]="q";
+	d[19]="r";
+	d[20]="s";
+	d[21]="t";
+	d[22]="u";
+	d[23]="v";
+	d[24]="w";
+	d[25]="x";
+	d[26]="y";
+	d[27]="z";
+	
+	Mientras  v1==Verdadero
+		
+		Mostrar Sin Saltar"opcion: "
+		Leer abc
+		Borrar Pantalla
+		si(Longitud(abc) >1 o Longitud(abc) <1) Entonces
+			Mostrar "opciones no validas / Ingrese un Numero..."
+			Esperar 2 Segundos
+			
+		SiNo
+			vof=Falso
+			
+			Para I=1 Hasta 27 Hacer
+				
+				si(d[I]==abc o Mayusculas(d[I])==abc) Entonces
+					Mostrar "no ingrese letras, por favor ingrese un numero..."
+					vof=Verdadero;
+				FinSi
+			FinPara
+			
+			si(vof== Falso) Entonces
+				ValorN=ConvertirANumero(abc)
+				op=valorN
+				
+				Para I=1 Hasta valorN Hacer
+					
+					si (I==valorN) Entonces
+						v1= Falso
+					FinSi
+				FinPara
+			FinSi
+		FinSi
+	FinMientras
+FinFuncion
